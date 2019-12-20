@@ -14,9 +14,15 @@
 
           <q-toolbar-title>
             冯柏璋-BOLG
+            <q-spinner-radio
+              color="red"
+              size="1em"
+            />
           </q-toolbar-title>
 
-          <div>Quasar v{{ $q.version }}</div>
+          <div>
+            <img :src="img" alt="github" style="max-height:100px" @click="github">
+          </div>
         </q-toolbar>
       </q-header>
 
@@ -36,7 +42,7 @@
             >
               <q-card>
                 <q-card-section>
-                我叫冯柏璋，作为一个从后端转型过来的前端，不得不说前端真香。学不完的框架。
+                我叫冯柏璋，作为一个从后端转型过来的前端，学不完的框架，不得不说前端真香。
                 </q-card-section>
               </q-card>
             </q-expansion-item>
@@ -76,14 +82,13 @@
             <q-expansion-item
               expand-separator
               icon="drafts"
-              label="Drafts"
+              label="邮箱地址"
               header-class="text-purple"
             >
               <q-card>
                 <q-card-section>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-                  commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-                  eveniet doloribus ullam aliquid.
+                 <p>a452799018@sina.com</p>
+                 <p>https://github.com/githubfengbozhang</p>
                 </q-card-section>
               </q-card>
             </q-expansion-item>
@@ -100,7 +105,7 @@
           </q-list>
         </div>
       </q-drawer>
-      <q-page-container>
+      <q-page-container style="padding-top: 130px">
         <q-page padding >
           <router-view />
           <q-page-scroller position="bottom-right" :scroll-offset="150" :offset="[18, 18]">
@@ -119,8 +124,19 @@ export default {
   data() {
     return {
       leftDrawerOpen: false,
-      tab: 'mails'
+      tab: 'mails',
+      img: require('./../statics/icons/github.png')
+    }
+  },
+  methods: {
+    github() {
+      window.location.href = 'https://github.com/githubfengbozhang'
     }
   }
 }
 </script>
+<style scoped>
+ .q-header .q-layout__shadow::after{
+   bottom:0px !important
+ }
+</style>
